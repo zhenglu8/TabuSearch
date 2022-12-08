@@ -14,6 +14,7 @@ class TabuSearch:
     
     # Step1: Initial Path
     def initial_route(self,number):
+        print(number)
         route = list(range(number))
         random.shuffle(route)
         cost = self.calculate_cost(route)
@@ -90,6 +91,7 @@ class TabuSearch:
         return route, results
 
 if __name__ == "__main__":
+    '''
     number_city = 5
     # Step5: define 2D List
     distance_list = [[0.0000, 11.8658, 14.0778, 4.2337, 1.4596], 
@@ -97,6 +99,26 @@ if __name__ == "__main__":
                         [14.0778, 10.2788, 0.0000, 4.0575, 17.2087], 
                         [4.2337, 6.3823, 4.0575, 0.0000, 28.0986], 
                         [1.4596, 13.3265, 17.2087, 28.0986, 0.0000]]
+    '''
+    number_city = 0
+    result = []
+    distance_list = []
+    # Need to change the filename manually if reading another file
+    f = open("5_0.0_10.0.out", "r")
+    number_city = int(f.readline())
+    #print(numberCity)
+
+    for line in f:
+        if not len(line.split()) == 0:
+            result.append(line.split())
+    f.close()
+
+    for i in result:
+        i = list(map(float, i))
+        distance_list.append(i)
+
+    for j in distance_list:
+        print(j)
     
     ts = TabuSearch(distance_list)
 
